@@ -13,8 +13,8 @@ class CartDetail
 
     def calculate_tax
         @tax_percent = calculate_tax_percent
-        @tax_price = calculate_tax_price @tax_percent
-        @new_price = calculate_new_price @tax_price
+        @tax_price = calculate_tax_price(@tax_percent).round(2)
+        @new_price = calculate_new_price(@tax_price).round(2)
     end
 
     # def show
@@ -22,7 +22,7 @@ class CartDetail
     # end
 
     def convert_csv
-        "#{@quantity}, #{@product}, #{@new_price}".parse_csv
+        "#{@quantity}, #{@product}, #{format_decimal_fraction(@new_price)}".parse_csv
     end
 
     private
@@ -55,10 +55,14 @@ class CartDetail
     end
 
     def calculate_tax_price tax_percent = 0
-        round_nearest((@price * @quantity) / 100 * tax_percent).round(2)
+        round_nearest((@price * @quantity) / 100 * tax_percent)
     end
 
     def calculate_new_price tax_price = 0
-        (@price + tax_price).round(2)
+        @price + tax_price
+    end
+
+    def format_decimal_fraction number, size = 2
+        (number / 1).to_i.to_s + '.' + (number % 1 * (10**size)).to_i.to_s
     end
 end

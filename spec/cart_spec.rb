@@ -13,13 +13,13 @@ describe Cart do
     end
 
     describe "#new" do
-        it "Tạo mới Cart" do
+        it "new Cart" do
             expect(@cart).to be_an_instance_of Cart
         end
     end
 
     describe "#add_item" do
-        it "Thêm detail" do
+        it "add cart detail" do
             items.each do |item|
                 detail = CartDetail.new item[0], item[1], item[2]
                 detail.calculate_tax
@@ -30,7 +30,7 @@ describe Cart do
     end
 
     describe "#total_price" do
-        it "Tổng tiền" do
+        it "total price" do
             items.each do |item|
                 detail = CartDetail.new item[0], item[1], item[2]
                 detail.calculate_tax
@@ -41,7 +41,7 @@ describe Cart do
     end
 
     describe "#total_sales_tax" do
-        it "Tổng tiền" do
+        it "total sales tax" do
             items.each do |item|
                 detail = CartDetail.new item[0], item[1], item[2]
                 detail.calculate_tax

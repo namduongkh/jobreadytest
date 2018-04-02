@@ -49,12 +49,16 @@ class Cart
                     csv << item.convert_csv
                 end
                 csv << "\n".parse_csv
-                csv << "Sales Taxes: #{total_sales_tax.round(2)}".parse_csv
-                csv << "Total: #{total_price.round(2)}".parse_csv
+                csv << "Sales Taxes: #{format_decimal_fraction(total_sales_tax.round(2))}".parse_csv
+                csv << "Total: #{format_decimal_fraction(total_price.round(2))}".parse_csv
             end
             puts "Exported to " + file_output + "!"
         else 
             puts "Where output?"
         end
+    end
+
+    def format_decimal_fraction number, size = 2
+        (number / 1).to_i.to_s + '.' + (number % 1 * (10**size)).to_i.to_s
     end
 end
