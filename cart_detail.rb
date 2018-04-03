@@ -2,7 +2,7 @@ EXCEPT_SALES_TAX_10 = ["chocolate", "chocolates", "book", "pills"]
 SALES_TAX_5 = ["imported", "import"]
 
 class CartDetail
-    attr_reader :tax_percent, :new_price, :tax_price
+    attr_reader :tax_percent, :new_price, :tax_price, :product
 
     def initialize quantity, product, price
         @quantity = quantity.to_i

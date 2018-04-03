@@ -6,16 +6,6 @@ class Cart
 
     def initialize
         @list = []
-        # @file_output = file_output
-        # input_arrs = CSV.read(file_input)
-        # for i in 0...input_arrs.size
-        #     if i != 0
-        #         item = CartDetail.new input_arrs[i][0],input_arrs[i][1],input_arrs[i][2]
-        #         item.calculate_tax
-        #         # item.show
-        #         add_item item
-        #     end
-        # end
     end
 
     def add_item item

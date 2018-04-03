@@ -11,6 +11,12 @@ describe CartDetail do
         end
     end
 
+    describe "#detail product" do
+        it "detail product" do
+            expect(@detail.product).to eq "book"
+        end
+    end
+
     describe "#calculate_tax" do
         it "calculate tax" do
             @detail.calculate_tax
