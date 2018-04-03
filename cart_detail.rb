@@ -8,7 +8,7 @@ class CartDetail
         @quantity = quantity.to_i
         @product = product.strip
         @price = price.to_f
-        # calculate_tax
+        calculate_tax
     end
 
     def calculate_tax
