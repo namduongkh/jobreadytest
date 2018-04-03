@@ -12,7 +12,7 @@ describe Cart do
     before :each do
         @cart = Cart.new
         items.each do |item|
-            detail = CartDetail.new item[0], item[1], item[2]
+            detail = CartDetail.new *item
             detail.calculate_tax
             @cart.add_item detail
         end

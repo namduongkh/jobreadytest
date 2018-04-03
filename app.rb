@@ -22,7 +22,8 @@ files.each do |file|
     input_arrs = CSV.read(file[:in])
     for i in 0...input_arrs.size
         if i != 0
-            item = CartDetail.new input_arrs[i][0],input_arrs[i][1],input_arrs[i][2]
+            # item = CartDetail.new input_arrs[i][0],input_arrs[i][1],input_arrs[i][2]
+            item = CartDetail.new *input_arrs[i]
             item.calculate_tax
             cart.add_item item
         end
