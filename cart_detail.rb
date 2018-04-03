@@ -1,3 +1,5 @@
+require "./utils.rb"
+
 EXCEPT_SALES_TAX_10 = ["chocolate", "chocolates", "book", "pills"]
 SALES_TAX_5 = ["imported", "import"]
 
@@ -22,7 +24,7 @@ class CartDetail
     # end
 
     def convert_csv
-        "#{@quantity}, #{@product}, #{format_decimal_fraction(@new_price)}".parse_csv
+        "#{@quantity}, #{@product}, #{Utils.format_decimal_fraction(@new_price)}".parse_csv
     end
 
     private
@@ -62,7 +64,4 @@ class CartDetail
         @price + tax_price
     end
 
-    def format_decimal_fraction number, size = 2
-        (number / 1).to_i.to_s + '.' + (number % 1 * (10**size)).to_i.to_s
-    end
 end
